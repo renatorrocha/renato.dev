@@ -1,16 +1,17 @@
 ---
 import { BackgroundBeams } from "@/components/ui/bg-beams";
 import MainLayout from "../layouts/main-layout.astro";
-import { AboutSection, HeroSection } from "@/components/sections";
-// import HeroSection from "@/components/sections/hero";
+import { HeroSection, AboutSection, WorkSection } from "@/components/sections";
 ---
 
 <MainLayout title="Portfolio">
-    <div class="flex min-h-[100dvh] flex-col space-y-10">
+    <div class="flex min-h-[100dvh] flex-col gap-10">
         <BackgroundBeams client:load />
 
         <HeroSection client:load />
 
         <AboutSection client:load />
+
+        <WorkSection client:load />
     </div>
 </MainLayout>
