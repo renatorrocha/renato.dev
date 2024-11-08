@@ -1,7 +1,12 @@
 ---
 import { BackgroundBeams } from "@/components/ui/bg-beams";
 import MainLayout from "../layouts/main-layout.astro";
-import { HeroSection, AboutSection, WorkSection } from "@/components/sections";
+import {
+    HeroSection,
+    AboutSection,
+    WorkSection,
+    EducationSection,
+} from "@/components/sections";
 ---
 
 <MainLayout title="Portfolio">
@@ -13,5 +18,7 @@ import { HeroSection, AboutSection, WorkSection } from "@/components/sections";
         <AboutSection client:load />
 
         <WorkSection client:load />
+
+        <EducationSection client:load />
     </div>
 </MainLayout>
