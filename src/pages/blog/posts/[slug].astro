@@ -8,4 +8,4 @@ export const getStaticPaths = (() => {
 const { slug } = Astro.params;
 ---
 
-<MainLayout> {slug} </MainLayout>
+<MainLayout title={`blog - ${slug}`}> {slug} </MainLayout>
