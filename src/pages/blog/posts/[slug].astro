@@ -1,0 +1,13 @@
+---
+import type { GetStaticPaths } from "astro";
+ export const getStaticPaths = (() => {
+  
+  return [{params: {slug: 'post-1'}}, {params: {slug: 'post-2'}}];
+}) satisfies GetStaticPaths;
+
+const {slug} = Astro.params
+---
+
+
+<h1>Post do BLog: {slug}</h1>
+
