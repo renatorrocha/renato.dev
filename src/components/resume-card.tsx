@@ -94,16 +94,20 @@ export function ResumeCard({
                     </CardHeader>
                     {description && (
                         <motion.div
+                            layout
                             initial={{ opacity: 0, height: 0 }}
                             animate={{
                                 opacity: isExpanded ? 1 : 0,
-
                                 height: isExpanded ? "auto" : 0,
                             }}
                             transition={{
-                                duration: 0.7,
-                                ease: [0.16, 1, 0.3, 1],
+                                opacity: { duration: 0.3, ease: "easeOut" },
+                                height: {
+                                    duration: 0.9,
+                                    ease: [0.6, 0.05, 0.01, 0.99],
+                                },
                             }}
+                            style={{ overflow: "hidden" }}
                             className="mt-2 text-xs sm:text-sm"
                         >
                             <Markdown
