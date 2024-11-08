@@ -2,8 +2,10 @@ import { BLUR_FADE_DELAY, DATA } from "@/lib/constants";
 import BlurFadeText from "../ui/blur-fade-text";
 import BlurFade from "../ui/blur-fade";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { useTranslation } from "react-i18next";
 
 export function HeroSection() {
+    const { t } = useTranslation("hero");
     return (
         <section id="hero">
             <div className="mx-auto w-full max-w-2xl space-y-8">
