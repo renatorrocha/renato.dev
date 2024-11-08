@@ -1,6 +1,10 @@
 ---
-import { Button } from "@/components/ui/button";
 import MainLayout from "../layouts/main-layout.astro";
+import HeroSection from "@/components/sections/hero";
 ---
 
-<MainLayout title="Portfolio"> Ola mundo </MainLayout>
+<MainLayout title="Portfolio">
+    <div class="flex min-h-[100dvh] flex-col space-y-10">
+        <HeroSection client:load />
+    </div>
+</MainLayout>
