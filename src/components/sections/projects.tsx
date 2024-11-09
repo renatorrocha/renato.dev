@@ -8,6 +8,8 @@ export function ProjectsSection() {
 
     const projectsData = t("projects", { returnObjects: true }) || [];
 
+    const projectsList = Array.isArray(projectsData) ? projectsData : [];
+
     return (
         <section id="projects">
             <div className="w-full space-y-12 py-12">
@@ -30,7 +32,7 @@ export function ProjectsSection() {
                     </div>
                 </BlurFade>
                 <div className="mx-auto grid max-w-[800px] grid-cols-1 gap-3 sm:grid-cols-2">
-                    {projectsData.map((project, id) => (
+                    {projectsList.map((project, id) => (
                         <BlurFade
                             key={project.title}
                             delay={BLUR_FADE_DELAY * 12 + id * 0.05}

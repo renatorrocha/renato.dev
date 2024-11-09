@@ -7,6 +7,8 @@ export function EducationSection() {
     const { t } = useTranslation("education");
 
     const educationData = t("education", { returnObjects: true }) || [];
+
+    const educationList = Array.isArray(educationData) ? educationData : [];
     return (
         <section id="education">
             <div className="flex min-h-0 flex-col gap-y-3">
@@ -14,7 +16,7 @@ export function EducationSection() {
                     <h2 className="text-xl font-bold">{t("title")}</h2>
                 </BlurFade>
 
-                {educationData.map((education, id) => (
+                {educationList.map((education, id) => (
                     <BlurFade
                         key={education.institution}
                         delay={BLUR_FADE_DELAY * 8 + id * 0.05}

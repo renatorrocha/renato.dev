@@ -7,6 +7,10 @@ export function WorkSection() {
     const { t } = useTranslation("work");
 
     const experiencesData = t("experiences", { returnObjects: true }) ?? [];
+
+    const experiencesList = Array.isArray(experiencesData)
+        ? experiencesData
+        : [];
     return (
         <section id="work">
             <div className="flex min-h-0 flex-col gap-y-3">
@@ -14,7 +18,7 @@ export function WorkSection() {
                     <h2 className="text-xl font-bold">{t("title")}</h2>
                 </BlurFade>
 
-                {experiencesData.map((work, id) => (
+                {experiencesList.map((work, id) => (
                     <BlurFade
                         key={work.company}
                         delay={BLUR_FADE_DELAY * 6 + id * 0.05}
