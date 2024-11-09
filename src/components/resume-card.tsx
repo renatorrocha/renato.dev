@@ -113,7 +113,7 @@ export function ResumeCard({
                             <Markdown
                                 className={cn(
                                     isExpanded ? "block" : "hidden",
-                                    "prose prose-sm sm:prose md:prose-base lg:prose-lg max-w-none"
+                                    "prose prose-sm sm:prose md:prose-base lg:prose-lg max-w-none list-inside"
                                 )}
                             >
                                 {description}

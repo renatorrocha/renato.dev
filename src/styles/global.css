@@ -127,4 +127,18 @@
     code[data-line-numbers-max-digits="3"] > [data-line]::before {
         width: 2rem;
     }
+
+    .prose ul,
+    .prose ol {
+        list-style-position: inside;
+        padding-left: 1.25rem; /* Garante o recuo adequado para as listas */
+    }
+
+    .prose ul li {
+        list-style-type: disc; /* Isso adiciona as bolinhas aos itens da lista */
+    }
+
+    .prose ol li {
+        list-style-type: decimal; /* Isso adiciona números às listas ordenadas */
+    }
 }
