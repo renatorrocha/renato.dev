@@ -3,7 +3,6 @@ import BlurFadeText from "../ui/blur-fade-text";
 import BlurFade from "../ui/blur-fade";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { useTranslation } from "react-i18next";
-import SelectLanguage from "../language-dropdown";
 
 export function HeroSection() {
     const { t } = useTranslation("hero");

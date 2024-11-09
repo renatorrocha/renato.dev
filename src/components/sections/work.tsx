@@ -26,7 +26,7 @@ export function WorkSection() {
                             href={work.href}
                             badges={work.badges}
                             period={`${work.start} - ${
-                            work.end ?? t("present")
+                                work.end ?? t("present")
                             }`}
                             description={work.description}
                         />

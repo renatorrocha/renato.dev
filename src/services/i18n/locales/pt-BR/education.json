@@ -1,0 +1,21 @@
+{
+    "title": "Educação",
+    "education": [
+        {
+            "institution": "Multivix",
+            "href": "https://multivix.edu.br/",
+            "degree": "Análise e Desenvolvimento de Sistemas",
+            "logoUrl": "/multivix.png",
+            "start": "Jul 2022",
+            "end": "Set 2024"
+        },
+        {
+            "institution": "Rocketseat + Sirius",
+            "href": "https://www.rocketseat.com.br/",
+            "degree": "MBA em Desenvolvimento Fullstack",
+            "logoUrl": "/rocketseat.png",
+            "start": "Ago 2024",
+            "end": "Ago 2025"
+        }
+    ]
+}
