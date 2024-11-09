@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { Dock, DockIcon } from "./ui/dock";
 import { DATA } from "@/lib/constants";
 import ThemeToggle from "./theme-toggle";
+import LanguageDropdown from "./language-dropdown";
 
 export default function Navbar() {
     return (
@@ -77,6 +78,19 @@ export default function Navbar() {
                             </TooltipTrigger>
                             <TooltipContent>
                                 <p>Change Theme</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </DockIcon>
+
+                    <DockIcon>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <div>
+                                    <LanguageDropdown />
+                                </div>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>Change Language</p>
                             </TooltipContent>
                         </Tooltip>
                     </DockIcon>
