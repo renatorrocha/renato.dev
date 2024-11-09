@@ -16,13 +16,13 @@ export function HeroSection() {
                             delay={BLUR_FADE_DELAY}
                             className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                             yOffset={8}
-                            text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
+                            text={t("greeting")}
                         />
 
                         <BlurFadeText
                             className="max-w-[600px] text-secondary md:text-xl"
                             delay={BLUR_FADE_DELAY}
-                            text={DATA.description}
+                            text={t("description")}
                         />
                     </div>
 
