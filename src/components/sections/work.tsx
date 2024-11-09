@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 
 export function WorkSection() {
     const { t } = useTranslation("work");
+
+    const experiencesData = t("experiences", { returnObjects: true }) ?? [];
     return (
         <section id="work">
             <div className="flex min-h-0 flex-col gap-y-3">
@@ -12,7 +14,7 @@ export function WorkSection() {
                     <h2 className="text-xl font-bold">{t("title")}</h2>
                 </BlurFade>
 
-                {t("experiences", { returnObjects: true }).map((work, id) => (
+                {experiencesData.map((work, id) => (
                     <BlurFade
                         key={work.company}
                         delay={BLUR_FADE_DELAY * 6 + id * 0.05}
