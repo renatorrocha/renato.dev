@@ -1,6 +1,9 @@
 ---
 import MainLayout from "@/layouts/main-layout.astro";
 import { getCollection } from "astro:content";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection("posts");
@@ -15,5 +18,27 @@ const { Content } = await entry.render();
 ---
 
 <MainLayout title={`Blog - ${entry.data.title}`}>
-    <Content />
+    <div class="container mx-auto px-4 py-8">
+        <Button variant="ghost" className="mb-4">
+            <a href="/blog" class="flex items-center">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar para o Blog
+            </a>
+        </Button>
+
+        <Card className="space-y-4">
+            <CardHeader className="bg-zinc-400/5 p-4">
+                <CardTitle className="text-3xl font-bold"
+                    >{entry.data.title}</CardTitle
+                >
+                <p class="text-muted-foreground">{entry.data.date}</p>
+            </CardHeader>
+
+            <CardContent className="p-4">
+                <div class="prose prose-lg dark:prose-invert max-w-none">
+                    <Content />
+                </div>
+            </CardContent>
+        </Card>
+    </div>
 </MainLayout>
