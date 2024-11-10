@@ -7,29 +7,10 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
+import { getCollection } from "astro:content";
 
-// Simulação de dados de posts
-const blogPosts = [
-    {
-        id: "post-1",
-        title: "Post 1",
-        excerpt: "excerpt post-1.",
-        date: "2023-06-01",
-    },
-    {
-        id: "post-2",
-        title: "Post 2",
-        excerpt: "excerpt post-2.",
-        date: "2023-06-01",
-    },
-    {
-        id: "post-3",
-        title: "Post 3",
-        excerpt: "excerpt post-3.",
-        date: "2023-06-01",
-    },
-];
+const allPosts = await getCollection("posts");
 ---
 
 <MainLayout title="Blog">
@@ -37,21 +18,25 @@ const blogPosts = [
         <h1 class="text-3xl font-bold mb-6">Posts do Blog</h1>
         <div class="flex flex-col gap-6">
             {
-                blogPosts.map((post) => (
+                allPosts.map((post) => (
                     <Card className="p-4">
                         <CardHeader>
-                            <CardTitle className="">{post.title}</CardTitle>
+                            <CardTitle>{post.data.title}</CardTitle>
                         </CardHeader>
 
                         <CardContent>
-                            <p class="text-muted-foreground">{post.excerpt}</p>
+                            <p class="text-muted-foreground">
+                                {post.data.excerpt}
+                            </p>
                         </CardContent>
                         <CardFooter className="flex justify-between items-center">
                             <span class="text-sm text-muted-foreground">
-                                {post.date}
+                                {post.data.date}
                             </span>
                             <Button variant={"outline"}>
-                                <a href={`/blog/posts/${post.id}`}>Ler mais</a>
+                                <a href={`/blog/posts/${post.slug}`}>
+                                    Ler mais
+                                </a>
                             </Button>
                         </CardFooter>
                     </Card>
