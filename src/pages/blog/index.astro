@@ -1,72 +1,19 @@
 ---
 import MainLayout from "@/layouts/main-layout.astro";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { getCollection } from "astro:content";
-import { Badge } from "@/components/ui/badge";
-import BlurFade from "@/components/ui/blur-fade";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import BlurFadeText from "@/components/ui/blur-fade-text";
-
-const allPosts = await getCollection("posts");
+import BlogPosts from "@/components/sections/posts";
 ---
 
 <MainLayout title="Blog">
-    <div class="container mx-auto px-4 py-8 space-y-4">
+    <div class="container mx-auto px-4 py-8 flex flex-col gap-4">
         <BlurFadeText
             client:load
             delay={BLUR_FADE_DELAY}
             className="text-3xl font-bold mx-auto h-fit sm:text-4xl xl:text-5xl/none"
-            text={"Posts do Blog"}
+            text={"Posts"}
         />
-        <div class="flex flex-col gap-6">
-            {
-                allPosts.map((post, i) => (
-                    <BlurFade delay={BLUR_FADE_DELAY * 3.5 * i} client:load>
-                        <Card className="p-4 shadow-md">
-                            <CardHeader className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                                <CardTitle className="truncate max-w-[70%]">
-                                    {post.data.title}
-                                </CardTitle>
-                                <span class="text-sm text-muted-foreground mt-2 sm:mt-0">
-                                    {post.data.date}
-                                </span>
-                            </CardHeader>
 
-                            <CardContent className="space-y-2">
-                                <p class="text-muted-foreground">
-                                    {post.data.excerpt}
-                                </p>
-
-                                <div class="flex flex-wrap gap-2">
-                                    {post.data.tags &&
-                                        post.data.tags.map((tag) => (
-                                            <Badge variant="secondary">
-                                                {tag}
-                                            </Badge>
-                                        ))}
-                                </div>
-                            </CardContent>
-                            <CardFooter className="flex justify-between items-center">
-                                <span class="text-sm text-muted-foreground">
-                                    {post.data.date}
-                                </span>
-                                <Button variant={"outline"}>
-                                    <a href={`/blog/posts/${post.slug}`}>
-                                        Ler mais
-                                    </a>
-                                </Button>
-                            </CardFooter>
-                        </Card>
-                    </BlurFade>
-                ))
-            }
-        </div>
+        <BlogPosts client:only />
     </div>
 </MainLayout>

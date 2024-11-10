@@ -1,8 +1,9 @@
 ---
 title: "Post 1"
-excerpt: "teste"
+excerpt: "teste pt"
 date: "2023-11-09"
 tags: ["astro", "tutorial"]
+lang: "pt-BR"
 ---
 
-Ptbr
+pt-br

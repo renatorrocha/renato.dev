@@ -1,8 +1,9 @@
 ---
 title: "Post 1"
-excerpt: "teste"
+excerpt: "teste en"
 date: "2023-11-09"
 tags: ["astro", "tutorial"]
+lang: "en-US"
 ---
 
 ### Portfolio Overview
