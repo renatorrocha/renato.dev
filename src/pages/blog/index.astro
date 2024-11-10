@@ -1,9 +1,62 @@
 ---
 import MainLayout from "@/layouts/main-layout.astro";
+import {
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { Button, buttonVariants } from "@/components/ui/button";
+
+// Simulação de dados de posts
+const blogPosts = [
+    {
+        id: "post-1",
+        title: "Post 1",
+        excerpt: "excerpt post-1.",
+        date: "2023-06-01",
+    },
+    {
+        id: "post-2",
+        title: "Post 2",
+        excerpt: "excerpt post-2.",
+        date: "2023-06-01",
+    },
+    {
+        id: "post-3",
+        title: "Post 3",
+        excerpt: "excerpt post-3.",
+        date: "2023-06-01",
+    },
+];
 ---
 
-<MainLayout title="blog">
-    <a href="/blog/posts/post-1">post-1</a>
-    <a href="/blog/posts/post-2">post-2</a>
-    <a href="/blog/posts/post-3">post-3</a>
+<MainLayout title="Blog">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6">Posts do Blog</h1>
+        <div class="flex flex-col gap-6">
+            {
+                blogPosts.map((post) => (
+                    <Card className="p-4">
+                        <CardHeader>
+                            <CardTitle className="">{post.title}</CardTitle>
+                        </CardHeader>
+
+                        <CardContent>
+                            <p class="text-muted-foreground">{post.excerpt}</p>
+                        </CardContent>
+                        <CardFooter className="flex justify-between items-center">
+                            <span class="text-sm text-muted-foreground">
+                                {post.date}
+                            </span>
+                            <Button variant={"outline"}>
+                                <a href={`/blog/posts/${post.id}`}>Ler mais</a>
+                            </Button>
+                        </CardFooter>
+                    </Card>
+                ))
+            }
+        </div>
+    </div>
 </MainLayout>
