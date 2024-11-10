@@ -43,7 +43,7 @@ const BlogPosts = () => {
                             </span>
                         </CardHeader>
 
-                        <CardContent className="space-y-2">
+                        <CardContent className="space-y-2 pt-1">
                             <p className="text-muted-foreground">
                                 {post.data.excerpt}
                             </p>
